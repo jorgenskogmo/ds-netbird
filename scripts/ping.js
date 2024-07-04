@@ -32,9 +32,12 @@ async function is_online(hostname, err = '', out = '') {
   }else{
     // console.log('is_online:', true);
     
+    // mac: PING google.com (172.217.23.110): 56 data bytes
+    // lin: PING google.com (216.58.206.46) 56(84) bytes of data.
+
     const lines = out.split('\n');
     // console.log('lines:', lines);
-    const ip = lines[0].split("PING")[1].split(":")[0].split("(")[1].split(")")[0].trim()
+    const ip = lines[0].split("PING")[1].split("(")[1].split(")")[0].trim()
     // console.log('ip:', ip);
     lines.forEach(line => {
       // round-trip min/avg/max/stddev = 228.148/228.148/228.148/0.000 ms
