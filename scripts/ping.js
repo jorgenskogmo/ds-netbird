@@ -36,16 +36,17 @@ async function is_online(hostname, err = '', out = '') {
     // lin: PING google.com (216.58.206.46) 56(84) bytes of data.
 
     const lines = out.split('\n');
-    // console.log('lines:', lines);
+    console.log('lines:', lines);
     const ip = lines[0].split("PING")[1].split("(")[1].split(")")[0].trim()
-    // console.log('ip:', ip);
+    console.log('ip:', ip);
+    
     lines.forEach(line => {
       // round-trip min/avg/max/stddev = 228.148/228.148/228.148/0.000 ms
-      if( line.startsWith("round-trip")){
+      if( line.startsWith("round-trip") || line.startsWith("rtt")){
         const stats = line.split("=")[1].trim()
         const avg = stats.split("/")[1].trim()
-        // console.log('stats:', stats);
-        // console.log('avg:', avg);
+        console.log('stats:', stats);
+        console.log('avg:', avg);
         update_log(hostname, ip, avg)
       }
     })
