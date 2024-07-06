@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, appendFileSync } from 'fs';
 import { hostname } from 'os';
 
 const HOSTS = [
-  // 'ds-opa.netbird.cloud',
+  'ds-opa.netbird.cloud',
   'ds-opb.netbird.cloud',
   'ds-opc.netbird.cloud',
   'google.com',
